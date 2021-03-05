@@ -128,7 +128,7 @@ class Products(Client):
             kwargs['ItemCondition'] = item_condition
         return self._request(fill_query_params(kwargs.pop('path'), asin),
                             params={**({'ItemCondition': kwargs.pop('ItemCondition')} if 'ItemCondition' in kwargs else {}),
-                                    'MarketplaceId': kwargs.get('MarketplaceId', self.marketplace_id)}).json()
+                                    'MarketplaceId': kwargs.get('MarketplaceId', self.marketplace_id)})
 
     def _create_get_pricing_request(self, item_list, item_type, **kwargs):
         return self._request(kwargs.pop('path'),
